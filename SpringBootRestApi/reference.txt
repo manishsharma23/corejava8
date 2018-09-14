@@ -1,0 +1,5 @@
+run java file  -- SpringBootRestApiApp.java
+open postman and use http://localhost:8083/SpringBootRestApi/api/user/
+
+
+

@@ -27,8 +27,8 @@ public class Stream_pridects {
 		List integerList = new LinkedList<Integer>();
 		List doubleList = new LinkedList<Double>();
 		Consumer<Object> strm = classifyDataType(isString, stringList::add)
-				.andThen(classifyDataType(isFloat, floatList::add)).andThen(classify(isInteger, integerList::add))
-				.andThen(classify(isDouble, doubleList::add));
+				.andThen(classifyDataType(isFloat, floatList::add)).andThen(classifyDataType(isInteger, integerList::add))
+				.andThen(classifyDataType(isDouble, doubleList::add));
 		streamString.forEach(strm);
 		System.out.println("String type ::>> " + stringList);
 		System.out.println("Float type ::>> " + floatList);

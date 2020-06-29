@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.groupby.model.Person;
 
 public class GroupByDemoInJava5 {
 	public static void main(String[] args) {

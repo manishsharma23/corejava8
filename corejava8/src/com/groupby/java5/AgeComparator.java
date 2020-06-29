@@ -2,7 +2,6 @@ package com.groupby.java5;
 
 import java.util.Comparator;
 
-import com.groupby.model.Person;
 
 public class AgeComparator implements Comparator<Person> {
 

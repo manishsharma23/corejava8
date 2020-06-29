@@ -8,15 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.groupby.model.Person;
-
+//https://mkyong.com/java8/java-8-convert-list-to-map/
 public class Parallel_stream_sorted_reverse {
 	public static void main(String[] args) {
 		parallaDemo();
 		System.out.println("================================================");
 		parallalSorting();
 	}
-
 	public static void parallalSorting() {
 		Integer[] intArray = { 1, 2, 3, 0, 5, 6, 7, 8 };
 		List<Integer> listOfIntegers = new ArrayList<>(Arrays.asList(intArray));

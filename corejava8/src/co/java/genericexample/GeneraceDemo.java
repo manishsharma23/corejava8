@@ -10,7 +10,7 @@ public class GeneraceDemo {
 	public static void main(String[] args) {
 		List<Integer> integers = Arrays.asList(2, 4, 6);
 		double sum = sum(integers);
-		
+
 		System.out.println("Sum of integer = " + sum);
 		System.out.println("=================================");
 		List<Double> doubles = Arrays.asList(3.14, 1.68, 2.94);

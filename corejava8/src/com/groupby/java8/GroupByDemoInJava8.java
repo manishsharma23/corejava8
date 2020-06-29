@@ -1,11 +1,10 @@
 package com.groupby.java8;
 
+//https://mkyong.com/java8/java-8-convert-list-to-map/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import com.groupby.model.Person;
 
 public class GroupByDemoInJava8 {
 	public static void main(String[] args) {

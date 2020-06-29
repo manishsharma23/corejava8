@@ -1,43 +1,55 @@
 package com.groupby.java8;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+//https://mkyong.com/java8/java-8-convert-list-to-map/
 public class List2Map {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		List<Employee> ls = new ArrayList<Employee>();
-		ls.add(new Employee("Manish", "1"));
-		ls.add(new Employee("Manish", "1"));
-		ls.add(new Employee("Manisha", "2"));
-		ls.add(new Employee("Manish", "1"));
-
-		ls.add(new Employee("Manishb", "3"));
-
-		ls.add(new Employee("Manishc", "4"));
-		ls.forEach(p -> p.getId().toString());
-
-		System.out.println(ls.toString());
-		Map<String, String> map = (Map<String, String>) ls.stream()
-				.collect(Collectors.toMap(Employee::getId, Employee::getName,(oldvalue,newvalue)->oldvalue));
-
-		System.out.println(map);
-	
-	//	Map<String, String> map2 = (Map<String, String>) ls.stream()
-		//		.collect(Collectors.toMap(Employee::getId, Employee::getName,()));
-
-	
+		unikKeyainMap();
+		unUnicKeyainMap();
 	}
 
+	public static void unUnicKeyainMap() {
+		List<Person> lsPerson = new ArrayList<Person>();
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.forEach(p -> p.getName().toString());
+		Map<String, String> map = (Map<String, String>) lsPerson.stream()
+				.collect(Collectors.toMap(Person::getName, Person::getCity, (oldvalue, newvalue) -> oldvalue));
+		System.out.println("unUnicKeyainMap...." + map);
+	}
+
+	public static void unikKeyainMap() {
+		List<Person> lsPerson = new ArrayList<Person>();
+		lsPerson.add(new Person("manish", "IT", "pune", 89000, 42));
+		lsPerson.add(new Person("manish1", "IT1", "pune", 99000, 42));
+		lsPerson.add(new Person("manish2", "IT2", "pune", 79000, 42));
+		lsPerson.add(new Person("manish3", "IT3", "pune", 19000, 42));
+		lsPerson.add(new Person("manish4", "IT4", "pune", 9000, 42));
+		Map<String, String> map2 = (Map<String, String>) lsPerson.stream()
+				.collect(Collectors.toMap(Person::getName, Person::getDepartment));
+		System.out.println("unikKeyainMap..." + map2);
+		System.out.println("=========================S=======================");
+		lsPerson.stream().filter(emp -> emp.getSalary() > 10000).forEach(System.out::println);
+		System.out.println("=========================E=======================");
+		System.out.println("=========================S 1 =======================");
+		// List<Person> filteredList =
+		lsPerson.stream().filter(emp -> emp.getSalary() > 10000).collect(Collectors.toList())
+				.forEach(System.out::println);
+		System.out.println("=========================E 2 =======================");
+		Map<Object, String> newlogic = lsPerson.stream().filter(p -> p.getAge() > 30).collect(
+				Collectors.groupingBy(p -> p.getName(), Collectors.mapping(p -> p.getName(), Collectors.joining(","))));
+		System.out.println("......" + newlogic);
+	}
 }
 
 class Employee {
-
 	String name;
 
 	public Employee(String name, String id) {
@@ -62,5 +74,4 @@ class Employee {
 	}
 
 	String id;
-
 }
